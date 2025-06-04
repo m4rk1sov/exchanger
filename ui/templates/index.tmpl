@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Aggregator</title>
+</head>
+<body>
+    <h1>KZT Currency Converter</h1>
+    {{if .Error}}
+    <p style="color: red">{{.Error}}</p>
+    {{end}}
+    <form method="post">
+        <label> Amount (KZT):
+            <input type="text" name="amount" placeholder="Amount" required>
+        </label><br>
+        <label>Currency:
+            <select name="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="RUB">RUB</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="CNY">CNY</option>
+            </select>
+        </label><br>
+        <input type="submit" value="Convert">
+    </form>
+    {{if .Converted}}
+        <h2>Result</h2>
+        <p>Date: {{.Date}}</p>
+        <p>Rate: {{.Rate}}</p>
+        <p>Converted: {{.Converted}}</p>
+    {{end}}
+</body>
+</html>
